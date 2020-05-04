@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 2020_05_03_231726) do
     t.string "last_name"
     t.integer "phone_number"
     t.boolean "technician", default: false
-    t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

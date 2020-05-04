@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :last_name
       t.integer :phone_number
       t.boolean :technician, :default => false
-      t.string :address
+      
 
       t.timestamps
     end
