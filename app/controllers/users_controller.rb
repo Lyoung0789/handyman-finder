@@ -20,6 +20,7 @@ class UsersController < ApplicationController
             redirect_to user_path(current_user)
         end 
         @user = User.find_by(id: params[:id])
+        # byebug
     end 
 
     private 

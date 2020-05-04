@@ -1,2 +1,10 @@
 <h1>Welcome <%= @user.first_name %>!</h1>
 
+<h2>Below you can find your Appointments: </h2>
+<br>
+
+<ul>
+    <% @user.appointments.each do |app| %> 
+       <li> <%= app.issue %> <%= app.date %> <%= app.technician.name %> </l1>
+    <% end %> 
+</ul>
