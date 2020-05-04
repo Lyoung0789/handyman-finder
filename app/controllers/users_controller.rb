@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    skip_before_action :verified_user, only: [:new, :create]
 
     def new 
         # binding.pry
@@ -15,9 +16,10 @@ class UsersController < ApplicationController
     end 
     
     def show 
-        
+        if current_user.id != params[:id].to_i
+            redirect_to user_path(current_user)
+        end 
         @user = User.find_by(id: params[:id])
-
     end 
 
     private 
