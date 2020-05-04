@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :appointments
   resources :technicians
   resources :users
   get '/', to: "welcome#hello" 
