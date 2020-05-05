@@ -7,7 +7,6 @@ class TechniciansController < ApplicationController
 
     def show
         @technician = Technician.find_by(id: params[:id])
-        
     end 
 
 

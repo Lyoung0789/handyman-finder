@@ -23,6 +23,11 @@ class AppointmentsController < ApplicationController
         @appointment = Appointment.find_by(id: params[:id])
     end 
 
+    def index
+        @tech = Technician.find_by(id: params[:technician_id])
+        # byebug
+        
+    end 
     private 
 
     def appointment_params
