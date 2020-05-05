@@ -1,6 +1,7 @@
 class AppointmentsController < ApplicationController
     def new 
-        if params[:technician_id] && tech = Technician.find_by[id: params[:technician_id]]
+        # byebug
+        if params[:technician_id] && tech = Technician.find_by(id: params[:technician_id])
             @appointment = tech.appointments.build
         else 
             @appointment = Appointment.new

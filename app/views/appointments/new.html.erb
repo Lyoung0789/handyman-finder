@@ -1,1 +1,12 @@
 <h1>Book Your Appointment</h1>
+
+<%= form_for @appointment do |f| %>
+    <%= f.label :date %> 
+    <%= f.datetime_select :date %> 
+<br>
+    <%= f.label :issue %> 
+    <%= f.text_area :issue %> 
+
+    <%= f.submit %>
+
+    <% end %>
