@@ -2,11 +2,15 @@
 
 <%= form_for @appointment do |f| %>
     <%= f.label :date %> 
-    <%= f.datetime_select :date %> 
-<br>
+    <%= f.datetime_field :date %> 
+    <br>
     <%= f.label :issue %> 
     <%= f.text_area :issue %> 
 
+    
+    <br> 
+    <%= f.label :technician_id, "Technician"%> 
+    <%= f.collection_select :technician_id, Technician.all, :id, :name, prompt:true %>
+    <br>
     <%= f.submit %>
-
-    <% end %>
+<% end %>
