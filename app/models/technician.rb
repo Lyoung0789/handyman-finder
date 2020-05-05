@@ -4,7 +4,7 @@ class Technician < ApplicationRecord
 
     def self.search(params)
         # byebug
-        where("LOWER(name) LIKE ?", "%#{params}%")
+        where("LOWER(category) LIKE ?", "%#{params}%")
     end 
 
 end

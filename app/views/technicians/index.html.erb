@@ -1,11 +1,10 @@
 <h1>Technicians</h1> 
 <%= form_tag("/technicians", method: "get") do %>
-    <%= label_tag(:q, "Search For:") %>
+    <%= label_tag(:q, "Search For Category:") %>
     <%= text_field_tag(:q) %>
     <%= submit_tag("Search") %>
 <% end %>
 <br>
-
 
 <ul>
 <% @technicians.each do |tech| %> 
