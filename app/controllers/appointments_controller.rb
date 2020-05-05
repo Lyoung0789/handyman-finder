@@ -1,9 +1,9 @@
 class AppointmentsController < ApplicationController
     def new 
-        # byebug
-        if params[:technician_id] && tech = Technician.find_by(id: params[:technician_id])
+        
+        if params[:technician_id] && @tech = Technician.find_by(id: params[:technician_id])
             # byebug
-            @appointment = tech.appointments.build
+            @appointment = @tech.appointments.build
         else 
             @appointment = Appointment.new
         end 
@@ -21,6 +21,9 @@ class AppointmentsController < ApplicationController
 
     end 
 
+    def show 
+        
+    end 
 
     private 
 

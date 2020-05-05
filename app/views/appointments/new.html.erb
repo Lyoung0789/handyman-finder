@@ -9,8 +9,14 @@
 
     
     <br> 
-    <%= f.label :technician_id, "Technician"%> 
-    <%= f.collection_select :technician_id, Technician.all, :id, :name, prompt:true %>
+    <% if !params[:technician_id] %> 
+        <%= f.label :technician_id, "Technician"%> 
+        <%= f.collection_select :technician_id, Technician.all, :id, :name, prompt:true %>
+    <% else %> 
+    
+        <%= f.hidden_field :technician_id, value: @tech.id %>
+    <% end %>
+
     <br>
     <%= f.submit %>
 <% end %>
