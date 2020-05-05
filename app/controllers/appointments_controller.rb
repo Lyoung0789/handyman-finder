@@ -12,17 +12,15 @@ class AppointmentsController < ApplicationController
     def create 
         # byebug
         @appointment = current_user.appointments.build(appointment_params)
-
         if @appointment.save
             redirect_to user_path(current_user)
         else 
             render :new 
         end 
-
     end 
 
     def show 
-        
+        @appointment = Appointment.find_by(id: params[:id])
     end 
 
     private 
