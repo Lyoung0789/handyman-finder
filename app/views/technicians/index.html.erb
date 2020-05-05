@@ -1,0 +1,7 @@
+<h1>Technicians</h1> 
+<% @technicians.each do |tech| %> 
+    <%= tech.name %> 
+    <%= tech.category %> 
+    <%= tech.rating %> 
+    <%= link_to "Book Technician" %> 
+<% end %> 
