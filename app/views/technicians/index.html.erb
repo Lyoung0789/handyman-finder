@@ -1,7 +1,9 @@
 <h1>Technicians</h1> 
+<ul>
 <% @technicians.each do |tech| %> 
-    <%= tech.name %> 
+   <li><%= link_to tech.name, technician_path(tech) %> 
     <%= tech.category %> 
     <%= tech.rating %> 
-    <%= link_to "Book Technician", new_technician_appointment_path(tech) %> 
+    <%= link_to "Book Technician", new_technician_appointment_path(tech) %></li>
 <% end %> 
+</ul>
