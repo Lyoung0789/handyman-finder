@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_182936) do
     t.string "phone_number"
     t.integer "rating"
     t.string "category"
+    t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -36,8 +37,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_182936) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
-    t.string "first_name"
-    t.string "last_name"
+    t.string "name"
     t.string "phone_number"
     t.boolean "technician", default: false
     t.datetime "created_at", precision: 6, null: false

@@ -5,6 +5,7 @@ class CreateTechnicians < ActiveRecord::Migration[6.0]
       t.string :phone_number
       t.integer :rating
       t.string :category
+      t.string :email
 
       t.timestamps
     end

@@ -2,8 +2,8 @@ class TechniciansController < ApplicationController
 
     def index 
         @technicians = Technician.all 
-
-        if !params[:q].empty? #search
+        # byebug
+        if params[:q]
             @technicians = @technicians.search(params[:q].downcase)
         end   
     end 
