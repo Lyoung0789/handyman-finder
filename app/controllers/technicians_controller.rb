@@ -2,7 +2,10 @@ class TechniciansController < ApplicationController
 
     def index 
         @technicians = Technician.all 
-        #the index is where im going to have to do nested routing with appointments    
+
+        if !params[:q].empty? #search
+            @technicians = @technicians.search(params[:q].downcase)
+        end   
     end 
 
     def show

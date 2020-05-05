@@ -1,4 +1,12 @@
 <h1>Technicians</h1> 
+<%= form_tag("/technicians", method: "get") do %>
+    <%= label_tag(:q, "Search For:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+<% end %>
+<br>
+
+
 <ul>
 <% @technicians.each do |tech| %> 
    <li><%= link_to tech.name, technician_path(tech) %> 
