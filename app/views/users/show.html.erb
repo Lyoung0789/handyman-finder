@@ -17,13 +17,5 @@
     <%= link_to "Click here", technicians_path %> 
     <br>
  
-        <%= form_tag(technician_appointments_path(:id), method: "get") do %>
-            <%= label_tag(:technician_id, "Select a Technician:") %>
-            <%= collection_select(:technician, :technician_id, Technician.all, :id, :name) %>
-            <%= submit_tag("Select") %>
-        <% end %>
-
-    <h2>Or Create new Technician</h2>
-    
     
 <% end %>
