@@ -1,6 +1,6 @@
 <h1>All of <%= @tech.name %> appointments</h1>
 <ul>
 <% @tech.appointments.each do |app| %>
-    <li><%= app.user.first_name %> - <%= app.issue %> @ <%= app.date %> </li>
+    <li><%= app.user.name %> - <%= app.issue %> @ <%= app.date %> </li>
 <% end %> 
 </ul>

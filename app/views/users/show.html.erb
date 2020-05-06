@@ -1,13 +1,26 @@
 <h1>Welcome <%= @user.name %>!</h1>
+<% if @user.technician == false %> 
+    <h2>Below you can find your Appointments: </h2>
+    <br>
 
-<h2>Below you can find your Appointments: </h2>
-<br>
+    <ul>
+        <% @user.appointments.each do |app| %> 
+        <li> <%= app.issue %> <%= app.date %> <%= app.technician.name %> </l1>
+        <% end %> 
+    </ul>
 
-<ul>
-    <% @user.appointments.each do |app| %> 
-       <li> <%= app.issue %> <%= app.date %> <%= app.technician.name %> </l1>
-    <% end %> 
-</ul>
+    <h2>Create new appointment</h2>
+    <%= link_to "View Technicians", technicians_path %> 
 
-<h2>Create new appointment</h2>
-<%= link_to "View Technicians", technicians_path %> 
+<% else %> 
+    <h2>To view Appointments please select the Technician Name:</h2>
+ 
+        <%= form_tag(technician_appointments_path(:id), method: "get") do %>
+            <%= label_tag(:technician_id, "Select a Technician:") %>
+            <%= collection_select(:technician, :technician_id, Technician.all, :id, :name) %>
+            <%= submit_tag("Select") %>
+        <% end %>
+
+    <h2>Or Create new Technician</h2>
+    
+<% end %>
