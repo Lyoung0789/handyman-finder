@@ -45,6 +45,13 @@ class TechniciansController < ApplicationController
     end 
 
     def update
+        # binding.pry
+        @technician = Technician.find_by(id: params[:id])
+        if @technician.update(tech_params)
+            redirect_to technician_path(@technician)
+        else 
+            render :edit
+        end 
     end 
 
 
