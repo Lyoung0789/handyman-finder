@@ -8,7 +8,6 @@ class Technician < ApplicationRecord
     end 
 
     def self.search_by_category(params)
-        
         where("Category = ?", params)
     end 
 

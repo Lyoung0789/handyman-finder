@@ -7,7 +7,7 @@
 
 <%= form_tag(technicians_path, method: "get") do %>
     <%= label_tag(:technician_id, "Filter by Category:") %>
-    <%= collection_select(:technician, :category, Technician.all, :category, :category) %>
+    <%= collection_select(:technician, :category, Technician.all, :category, :category, include_blank: "Any") %>
     <%= submit_tag("Filter") %>
 <% end %>
 
