@@ -11,9 +11,9 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
-            # binding.pry
+            flash[:error] = "Username or Password is incorrect"
             redirect_to '/login'
-            end
+        end
         
     end 
 
