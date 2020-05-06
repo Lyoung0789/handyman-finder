@@ -15,7 +15,9 @@ class AppointmentsController < ApplicationController
         if @appointment.save
             redirect_to user_path(current_user)
         else 
-            render :new 
+            flash[:error] = "Must have a valid date and an Issue."
+            redirect_to new_technician_appointment_path(params[:appointment][:technician_id])
+            
         end 
     end 
 

@@ -1,6 +1,12 @@
 <h1>Book Your Appointment</h1>
 
+<%= flash[:error] %>
+<br>
+
 <%= form_for @appointment do |f| %>
+
+    <%= render partial: "layouts/errors", locals: {object: @appointment} %>
+
     <%= f.label :date %> 
     <%= f.datetime_field :date %> 
     <br>
