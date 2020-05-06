@@ -17,12 +17,21 @@ class TechniciansController < ApplicationController
         if current_user.technician == false
             redirect_to "/"
         else 
+            
              @tech = Technician.new
+             
         end 
     end 
 
     def create
-        
+        # binding.pry
+        @tech = Technician.new(tech_params)
+        if @tech.save
+            redirect_to technician_path(@tech)
+        else
+            render :new
+        end 
+
     end 
 
 
@@ -32,4 +41,8 @@ class TechniciansController < ApplicationController
     end 
 
 
+    private 
+    def tech_params
+        params.require(:technician).permit(:name, :phone_number, :email, :category)
+    end 
 end

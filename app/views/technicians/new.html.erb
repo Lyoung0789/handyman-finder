@@ -1,5 +1,8 @@
 <h1>Create New Tech</h1>
 <%= form_for @tech do |f|%>
+
+    <%= render partial: "layouts/errors", locals: {object: @tech} %>
+
     <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -19,7 +22,7 @@
     <%= f.label :category %> 
     <%= f.text_field :category %>
     </div>
-    
+
     <%= f.submit %>
 
     <% end %>

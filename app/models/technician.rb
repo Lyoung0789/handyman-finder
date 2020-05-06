@@ -1,7 +1,9 @@
 class Technician < ApplicationRecord
     has_many :appointments
     has_many :users, through: :appointments
-
+    validates :name, presence: true
+    validates :category, presence: true 
+    validates :email, presence: true
 
     scope :filter_by_category, -> (params){where("Category = ?", "#{params}")}
 
