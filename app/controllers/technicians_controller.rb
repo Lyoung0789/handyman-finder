@@ -34,10 +34,17 @@ class TechniciansController < ApplicationController
 
     end 
 
-
-
     def show
         @technician = Technician.find_by(id: params[:id])
+    end 
+
+    def edit 
+        # binding.pry
+        @technician = Technician.find_by(id: params[:id])
+
+    end 
+
+    def update
     end 
 
 

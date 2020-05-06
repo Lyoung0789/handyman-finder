@@ -10,14 +10,14 @@ class AppointmentsController < ApplicationController
     end 
 
     def create 
-        # byebug
+        
         @tech = Technician.find_by(id: params[:appointment][:technician_id])
-        # binding.pry
+        
         new_date = DateTime.parse(params[:appointment][:date])
-        something = @tech.appointments.find{|a| a.date == new_date}
+        check_date = @tech.appointments.find{|a| a.date == new_date}
         @appointment = current_user.appointments.build(appointment_params)
 
-        if !something
+        if !check_date
 
             if @appointment.save
                 redirect_to user_path(current_user)
@@ -27,6 +27,7 @@ class AppointmentsController < ApplicationController
                 
             end 
         else 
+            #check this. Render vs Redirect
             flash[:error] = "Must have a valid date and an Issue."
             render :new
         end 

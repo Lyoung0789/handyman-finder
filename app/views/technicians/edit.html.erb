@@ -1,0 +1,19 @@
+<h1>Edit <%= @technician.name %></h1>
+<%=  form_for @technician do |f| %> 
+    <%= f.label :name %>
+    <%= f.text_field :name %> 
+
+    <%= f.label :email %>
+    <%= f.text_field :email %> 
+
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number%> 
+
+    <%= f.label :category%>
+    <%= f.text_field :category %> 
+
+    <%= f.submit %> 
+
+<% end %> 
+
+
