@@ -13,13 +13,18 @@ class TechniciansController < ApplicationController
     end 
 
     def new
-        byebug
+        # binding.pry
         if current_user.technician == false
             redirect_to "/"
         else 
              @tech = Technician.new
         end 
     end 
+
+    def create
+        
+    end 
+
 
 
     def show

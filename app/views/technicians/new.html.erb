@@ -1,1 +1,25 @@
 <h1>Create New Tech</h1>
+<%= form_for @tech do |f|%>
+    <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number %>
+    </div>
+
+    <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    </div>
+
+    <div class="field">
+    <%= f.label :category %> 
+    <%= f.text_field :category %>
+    </div>
+    
+    <%= f.submit %>
+
+    <% end %>
