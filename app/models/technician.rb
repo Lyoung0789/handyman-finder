@@ -10,8 +10,6 @@ class Technician < ApplicationRecord
         where("LOWER(name) LIKE ?", "%#{params}%")
     end 
 
-    # def self.search_by_category(params)
-    #     where("Category = ?", params)
-    # end 
+ 
 
 end
