@@ -6,11 +6,16 @@
 <% end %>
 <br>
 
+
 <ul>
 <% @technicians.each do |tech| %> 
-   <li><%= link_to tech.name, technician_path(tech) %> 
+    <li><%= link_to tech.name, technician_path(tech) %> 
     <%= tech.category %> 
     <%= tech.rating %> 
-    <%= link_to "Book Technician", new_technician_appointment_path(tech) %></li>
+    <% if current_user.technician == false %> 
+        <%= link_to "Book Technician", new_technician_appointment_path(tech) %></li>
+    <% else %>
+        <%= link_to "View Appointments", technician_appointments_path(tech) %>
+    <% end %>
 <% end %> 
 </ul>

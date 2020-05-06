@@ -13,7 +13,9 @@
     <%= link_to "View Technicians", technicians_path %> 
 
 <% else %> 
-    <h2>To view Appointments please select the Technician Name:</h2>
+    <h2>To view and edit Technicians</h2>
+    <%= link_to "Click here", technicians_path %> 
+    <br>
  
         <%= form_tag(technician_appointments_path(:id), method: "get") do %>
             <%= label_tag(:technician_id, "Select a Technician:") %>
@@ -22,5 +24,6 @@
         <% end %>
 
     <h2>Or Create new Technician</h2>
+    
     
 <% end %>
