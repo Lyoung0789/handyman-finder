@@ -6,8 +6,8 @@ class TechniciansController < ApplicationController
         if params[:q]
             @technicians = @technicians.search_by_name(params[:q].downcase)
         end  
-        # binding.pry
-        @technicians = @technicians.search_by_category(params[:technician][:category]) if params[:technician] && !params[:technician][:category].empty?
+        
+        @technicians = @technicians.filter_by_category(params[:technician][:category]) if params[:technician] && !params[:technician][:category].empty?
 
        
     end 
