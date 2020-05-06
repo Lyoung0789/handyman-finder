@@ -11,14 +11,26 @@ class AppointmentsController < ApplicationController
 
     def create 
         # byebug
+        @tech = Technician.find_by(id: params[:appointment][:technician_id])
+        # binding.pry
+        new_date = DateTime.parse(params[:appointment][:date])
+        something = @tech.appointments.find{|a| a.date == new_date}
         @appointment = current_user.appointments.build(appointment_params)
-        if @appointment.save
-            redirect_to user_path(current_user)
+
+        if !something
+
+            if @appointment.save
+                redirect_to user_path(current_user)
+            else 
+                flash[:error] = "Must have a valid date and an Issue."
+                redirect_to new_technician_appointment_path(params[:appointment][:technician_id])
+                
+            end 
         else 
             flash[:error] = "Must have a valid date and an Issue."
-            redirect_to new_technician_appointment_path(params[:appointment][:technician_id])
-            
+            render :new
         end 
+
     end 
 
     def show 
