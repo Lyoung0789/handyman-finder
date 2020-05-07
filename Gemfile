@@ -28,6 +28,16 @@ gem 'pry', '~> 0.12.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+# for omniauth
+gem 'thin'
+
+#for fb omnny auth
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'dotenv-rails'
+gem 'omniauth-facebook'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

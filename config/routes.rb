@@ -6,10 +6,14 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
 
+  get '/auth/facebook/callback' => 'sessions#fbcreate'
+
+
   resources :appointments
   resources :technicians
   resources :users
-  get '/', to: "welcome#hello" 
+
+  root "welcome#hello" 
 
   resources :technicians do 
     resources :appointments, only: [:new, :index]
