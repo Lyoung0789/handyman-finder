@@ -22,10 +22,24 @@ class UsersController < ApplicationController
             redirect_to user_path(current_user)
         end 
         @user = User.find_by(id: params[:id])
-
-       
-        
         # byebug
+    end 
+
+    def edit 
+        # binding.pry
+        @user = User.find_by(id: params[:id])
+    end 
+
+    def update 
+        # binding.pry
+        @user = User.find_by(id: params[:id])
+
+        if @user.update(user_params)
+            redirect_to user_path(@user)
+        else 
+            render :edit
+        end 
+        
     end 
 
     private 
