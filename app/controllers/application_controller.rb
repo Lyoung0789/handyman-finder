@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
     before_action :verified_user
     helper_method :current_user
     helper_method :logged_in?
+    helper_method :correct_user?
 
     private 
     def verified_user
@@ -19,6 +20,10 @@ class ApplicationController < ActionController::Base
 
       def logged_in?
         !!session[:user_id]
+      end 
+
+      def correct_user? 
+        current_user.id == params[:id].to_i
       end 
 
 end

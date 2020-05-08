@@ -1,4 +1,8 @@
+
+<div style="color:red"><strong><%= flash[:error] %></strong></div>
+
 <h1>Welcome <%= @user.name %>!</h1>
+
 <% if @user.technician == false %> 
     <h2>Below you can find your Appointments: </h2>
     <br>

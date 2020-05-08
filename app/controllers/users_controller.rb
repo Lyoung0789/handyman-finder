@@ -27,7 +27,14 @@ class UsersController < ApplicationController
 
     def edit 
         # binding.pry
-        @user = User.find_by(id: params[:id])
+        if correct_user?
+            @user = User.find_by(id: params[:id])
+        else 
+            flash[:error] = "You do not have access to that page"
+            redirect_to user_path(current_user)
+        end 
+
+        
     end 
 
     def update 
