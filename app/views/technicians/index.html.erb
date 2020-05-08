@@ -1,18 +1,6 @@
 <h1>Technicians</h1> 
-<%= form_tag("/technicians", method: "get") do %>
-    <%= label_tag(:q, "Search By Name:") %>
-    <%= text_field_tag(:q) %>
-    <%= submit_tag("Search") %>
-<% end %>
 
-<%= form_tag(technicians_path, method: "get") do %>
-    <%= label_tag(:technician_id, "Filter by Category:") %>
-    <%= collection_select(:technician, :category, Technician.all, :category, :category, include_blank: "Any") %>
-    <%= submit_tag("Filter") %>
-<% end %>
-
-<br>
-
+<%= render 'search' %> 
 
 <ul>
 <% @technicians.each do |tech| %> 
@@ -27,8 +15,17 @@
         
         <%= link_to "View Appointments", technician_appointments_path(tech) %>
         </li>
+        
     <% end %>
+
+    
 <% end %> 
 </ul>
+<br>
+<% if current_user.technician == true %>
+<h2>Create a new Technician</h2>
+    <%= link_to "Create New Technician", new_technician_path %>
+<% end %>
 
-<%= link_to "Create New Technician", new_technician_path %>
+
+

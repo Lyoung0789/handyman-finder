@@ -78,6 +78,7 @@ class AppointmentsController < ApplicationController
         @appointment.destroy
         redirect_to user_path(current_user)
     end 
+    
     private 
 
     def appointment_params

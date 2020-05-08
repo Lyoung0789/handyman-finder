@@ -1,0 +1,13 @@
+<%= form_tag("/technicians", method: "get") do %>
+    <%= label_tag(:q, "Search By Name:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+<% end %>
+
+<%= form_tag(technicians_path, method: "get") do %>
+    <%= label_tag(:technician_id, "Filter by Category:") %>
+    <%= collection_select(:technician, :category, Technician.all, :category, :category, include_blank: "Any") %>
+    <%= submit_tag("Filter") %>
+<% end %>
+
+<br>

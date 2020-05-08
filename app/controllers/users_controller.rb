@@ -22,7 +22,6 @@ class UsersController < ApplicationController
             flash[:error] = "You do not have access to that page."
             redirect_to user_path(current_user)
         end 
-        
     end 
 
     def edit       
