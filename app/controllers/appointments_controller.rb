@@ -35,7 +35,9 @@ class AppointmentsController < ApplicationController
     end 
 
     def show 
+        
         @appointment = Appointment.find_by(id: params[:id])
+        # binding.pry
     end 
 
     def index

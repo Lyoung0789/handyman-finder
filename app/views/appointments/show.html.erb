@@ -1,0 +1,12 @@
+<h1>Appointment Information</h1>
+
+<h3>You have a scheduled appointment on:</h3>
+<p> <%= @appointment.date.strftime("%A, %b %d") %> at: <%= @appointment.date.strftime("%I:%M:%S %p") %></p>
+
+<h3>Your Technician:</h3>
+    <p><%= @appointment.technician.name %> - <%= @appointment.technician.category %> </p>
+    
+<h3>Issue:</h3>
+    <p><%= @appointment.issue %> 
+
+<h4>If you would like to edit this appointment <%= link_to "Click Here", edit_appointment_path(@appointment) %> </h4>

@@ -9,7 +9,9 @@
 
     <ul>
         <% @user.appointments.each do |app| %> 
-        <li> <%= app.issue %> <%= app.date %> <%= app.technician.name %> </l1>
+        <li> <%= app.technician.name %> on <%= app.date.strftime("%A, %b %d") %> 
+            <%= link_to "More Details", appointment_path(app) %> 
+        </l1>
         <% end %> 
     </ul>
 
