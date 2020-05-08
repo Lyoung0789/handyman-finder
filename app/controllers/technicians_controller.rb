@@ -9,9 +9,8 @@ class TechniciansController < ApplicationController
     end 
 
     def new
-        # binding.pry
         if current_user.management == false
-            redirect_to "/"
+            no_access
         else         
              @technician = Technician.new 
         end 
