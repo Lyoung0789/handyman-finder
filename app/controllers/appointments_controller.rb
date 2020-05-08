@@ -35,21 +35,42 @@ class AppointmentsController < ApplicationController
     end 
 
     def show 
-        
-        @appointment = Appointment.find_by(id: params[:id])
         # binding.pry
+        @appointment = Appointment.find_by(id: params[:id])
+        if current_user.id != @appointment.user_id
+            flash[:error] = "You do not have access to that page."
+            redirect_to user_path(current_user)
+        end 
     end 
 
     def index
         @tech = Technician.find_by(id: params[:technician_id])
-        # byebug
+        # byebug 
+    end 
+
+    def update 
+        binding.pry
+    end 
+
+
+    def edit 
+        # binding.pry
+        @appointment = Appointment.find_by(id:params[:id])
+        if current_user.id != @appointment.user_id
+            flash[:error] = "You do not have access to that page."
+            redirect_to user_path(current_user)
+        end 
         
     end 
 
-    def edit 
-        @appointment = Appointment.find_by(id:params[:id])
+    def update 
         # binding.pry
+        @appointment = Appointment.find_by(id:params[:id])
+        @appointment.update(appointment_params)
+        redirect_to appointment_path(@appointment)
+
     end 
+
 
     def destroy 
         # binding.pry

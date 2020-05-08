@@ -10,6 +10,8 @@
     <%= f.label :issue %> 
     <%= f.text_area :issue %> 
 
+    <%= f.submit %>
+
 <% end %> 
 
 <p>If you would like to delete this appointment <%= link_to "Click Here", appointment_path(@appointment), method: "delete" %> <p>
