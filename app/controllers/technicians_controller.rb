@@ -1,33 +1,27 @@
 class TechniciansController < ApplicationController
 
     def index 
-        @technicians = Technician.all 
-        
+        @technicians = Technician.all  
         if params[:q]
             @technicians = @technicians.search_by_name(params[:q].downcase)
-        end  
-        
+        end     
         @technicians = @technicians.filter_by_category(params[:technician][:category]) if params[:technician] && !params[:technician][:category].empty?
-
-       
     end 
 
     def new
         # binding.pry
         if current_user.technician == false
             redirect_to "/"
-        else 
-            
-             @tech = Technician.new
-             
+        else         
+             @technician = Technician.new 
         end 
     end 
 
     def create
         # binding.pry
-        @tech = Technician.new(tech_params)
-        if @tech.save
-            redirect_to technician_path(@tech)
+        @technician = Technician.new(tech_params)
+        if @technician.save
+            redirect_to technician_path(@technician)
         else
             render :new
         end 
