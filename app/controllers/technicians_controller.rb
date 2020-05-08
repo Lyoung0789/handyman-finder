@@ -35,18 +35,18 @@ class TechniciansController < ApplicationController
     end 
 
     def show
-        @technician = Technician.find_by(id: params[:id])
+        find_technician
     end 
 
     def edit 
         # binding.pry
-        @technician = Technician.find_by(id: params[:id])
+        find_technician
 
     end 
 
     def update
         # binding.pry
-        @technician = Technician.find_by(id: params[:id])
+        find_technician
         if @technician.update(tech_params)
             redirect_to technician_path(@technician)
         else 
@@ -58,5 +58,9 @@ class TechniciansController < ApplicationController
     private 
     def tech_params
         params.require(:technician).permit(:name, :phone_number, :email, :category)
+    end 
+
+    def find_technician
+        @technician = Technician.find_by(id: params[:id])
     end 
 end

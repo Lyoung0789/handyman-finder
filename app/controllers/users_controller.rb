@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     
     def show 
         if correct_user?
-            @user = User.find_by(id: params[:id])
+            find_user
         else 
             flash[:error] = "You do not have access to that page."
             redirect_to user_path(current_user)
@@ -25,22 +25,17 @@ class UsersController < ApplicationController
         
     end 
 
-    def edit 
-        
+    def edit       
         if correct_user?
-            @user = User.find_by(id: params[:id])
+            find_user
         else 
             flash[:error] = "You do not have access to that page."
             redirect_to user_path(current_user)
-        end 
-
-        
+        end   
     end 
 
-    def update 
-        
-        @user = User.find_by(id: params[:id])
-
+    def update    
+        find_user
         if @user.update(user_params)
             redirect_to user_path(@user)
         else 
@@ -52,5 +47,9 @@ class UsersController < ApplicationController
     private 
     def user_params
         params.require(:user).permit(:name, :email, :phone_number, :username, :password, :technician)
+    end 
+
+    def find_user
+        @user = User.find_by(id: params[:id])
     end 
 end

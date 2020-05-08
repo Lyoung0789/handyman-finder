@@ -36,7 +36,7 @@ class AppointmentsController < ApplicationController
 
     def show 
         # binding.pry
-        @appointment = Appointment.find_by(id: params[:id])
+        find_appointment
         if current_user.id != @appointment.user_id
             flash[:error] = "You do not have access to that page."
             redirect_to user_path(current_user)
@@ -55,7 +55,7 @@ class AppointmentsController < ApplicationController
 
     def edit 
         # binding.pry
-        @appointment = Appointment.find_by(id:params[:id])
+        find_appointment
         if current_user.id != @appointment.user_id
             flash[:error] = "You do not have access to that page."
             redirect_to user_path(current_user)
@@ -65,7 +65,7 @@ class AppointmentsController < ApplicationController
 
     def update 
         # binding.pry
-        @appointment = Appointment.find_by(id:params[:id])
+        find_appointment
         @appointment.update(appointment_params)
         redirect_to appointment_path(@appointment)
 
@@ -74,7 +74,7 @@ class AppointmentsController < ApplicationController
 
     def destroy 
         # binding.pry
-        @appointment = Appointment.find_by(id: params[:id])
+        find_appointment
         @appointment.destroy
         redirect_to user_path(current_user)
     end 
@@ -82,5 +82,9 @@ class AppointmentsController < ApplicationController
 
     def appointment_params
         params.require(:appointment).permit(:date, :issue, :technician_id)
+    end 
+
+    def find_appointment
+        @appointment = Appointment.find_by(id: params[:id])
     end 
 end
