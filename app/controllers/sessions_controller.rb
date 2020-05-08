@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
     end 
 
     def create 
-        
         @user = User.find_by(username: params[:user][:username])
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
@@ -14,40 +13,29 @@ class SessionsController < ApplicationController
         else
             flash[:error] = "Username or Password is incorrect"
             redirect_to '/login'
-        end
-        
+        end  
     end 
     
     #omniauth
-
     def fbcreate
-        
         @user = User.find_or_create_by(uid: auth['uid']) do |u|
-           
             u.name = auth['info']['name']
             u.username = auth['info']['uid']
             u.email = auth['info']['email']
-            u.password = auth['uid'] #use a gem called secure random hex to produce a password
+            u.password = SecureRandom.hex 
         end
-        binding.pry
         session[:user_id] = @user.id
- 
         redirect_to user_path(@user)
     end 
 
     def githubcreate
-        
         @user = User.find_or_create_by(uid: auth['uid']) do |u|
-           
             u.name = auth['info']['nickname']
             u.username = auth['uid']
             u.email = auth[:info][:nickname] + "@gmail.com"
-            
-            u.password = auth['uid'] #use a gem called secure random hex to produce a password
+            u.password = SecureRandom.hex 
         end
-        # binding.pry
         session[:user_id] = @user.id
- 
         redirect_to user_path(@user)
     end 
 
@@ -57,7 +45,6 @@ class SessionsController < ApplicationController
     end 
 
     private 
-
     def auth
         request.env['omniauth.auth']
     end

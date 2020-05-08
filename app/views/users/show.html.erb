@@ -14,7 +14,7 @@
 
     <ul>
         <% @user.appointments.each do |app| %> 
-        <li> <strong>Appointment with: </strong><%= app.technician.name %> <br><strong>Confirmed for:</strong> <%= app.date.strftime("%A, %b %d") %> <br>
+        <li> <strong>Appointment with: </strong><%= app.technician.name %> <br><strong>Confirmed for:</strong> <%= app.date.strftime("%A, %d %b %Y %l:%M %p") %> <br>
             <%= link_to "More Details", appointment_path(app) %> 
             
         </l1>
