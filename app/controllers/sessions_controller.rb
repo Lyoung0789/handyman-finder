@@ -45,7 +45,7 @@ class SessionsController < ApplicationController
             
             u.password = auth['uid'] #use a gem called secure random hex to produce a password
         end
-        binding.pry
+        # binding.pry
         session[:user_id] = @user.id
  
         redirect_to user_path(@user)

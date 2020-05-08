@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/auth/github/callback' => 'sessions#githubcreate'
   
 
-  resources :appointments
+  resources :appointments, except: [:index]
   resources :technicians
   resources :users
 

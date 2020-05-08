@@ -10,7 +10,7 @@ class TechniciansController < ApplicationController
 
     def new
         # binding.pry
-        if current_user.technician == false
+        if current_user.management == false
             redirect_to "/"
         else         
              @technician = Technician.new 

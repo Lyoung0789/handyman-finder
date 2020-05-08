@@ -4,7 +4,7 @@
 
 <ul>
 <% @technicians.each do |tech| %> 
-    <% if current_user.technician == false %> 
+    <% if current_user.management == false %> 
         <li><%= link_to tech.name, technician_path(tech) %> 
         <%= tech.category %> 
         
@@ -22,7 +22,7 @@
 <% end %> 
 </ul>
 <br>
-<% if current_user.technician == true %>
+<% if current_user.management == true %>
 <h2>Create a new Technician</h2>
     <%= link_to "Create New Technician", new_technician_path %>
 <% end %>

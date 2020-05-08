@@ -3,16 +3,24 @@
 
 <h1>Welcome <%= @user.name %>!</h1>
 
-<% if @user.technician == false %> 
+
+<% if @user.phone_number.nil? %>
+    You have not updated your phone number. Please update your phone number under "My Profile".
+<% end %>
+
+<% if @user.management == false %> 
     <h2>Below you can find your Appointments: </h2>
-    <br>
+    
 
     <ul>
         <% @user.appointments.each do |app| %> 
-        <li> <%= app.technician.name %> on <%= app.date.strftime("%A, %b %d") %> 
+        <li> <strong>Appointment with: </strong><%= app.technician.name %> <br><strong>Confirmed for:</strong> <%= app.date.strftime("%A, %b %d") %> <br>
             <%= link_to "More Details", appointment_path(app) %> 
+            
         </l1>
+        
         <% end %> 
+        
     </ul>
 
     <h2>Create new appointment</h2>

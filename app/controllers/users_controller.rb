@@ -16,11 +16,10 @@ class UsersController < ApplicationController
     end 
     
     def show 
-        if correct_user?
+        if correct_user? 
             find_user
         else 
-            flash[:error] = "You do not have access to that page."
-            redirect_to user_path(current_user)
+            no_access
         end 
     end 
 
@@ -28,8 +27,7 @@ class UsersController < ApplicationController
         if correct_user?
             find_user
         else 
-            flash[:error] = "You do not have access to that page."
-            redirect_to user_path(current_user)
+            no_access
         end   
     end 
 
@@ -43,12 +41,18 @@ class UsersController < ApplicationController
         
     end 
 
+
     private 
     def user_params
-        params.require(:user).permit(:name, :email, :phone_number, :username, :password, :technician)
+        params.require(:user).permit(:name, :email, :phone_number, :username, :password, :management)
     end 
 
     def find_user
         @user = User.find_by(id: params[:id])
+    end 
+
+    def no_access 
+        flash[:error] = "You do not have access to that page."
+        redirect_to user_path(current_user)
     end 
 end
