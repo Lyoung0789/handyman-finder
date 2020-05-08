@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    skip_before_action :verified_user, only: [:new, :create, :fbcreate]
+    skip_before_action :verified_user, only: [:new, :create, :fbcreate, :githubcreate]
 
     def new 
         @user = User.new
@@ -21,20 +21,35 @@ class SessionsController < ApplicationController
     #omniauth
 
     def fbcreate
+        
         @user = User.find_or_create_by(uid: auth['uid']) do |u|
            
             u.name = auth['info']['name']
-            u.username = auth['info']['name']
+            u.username = auth['info']['uid']
             u.email = auth['info']['email']
             u.password = auth['uid'] #use a gem called secure random hex to produce a password
         end
-        # binding.pry
+        binding.pry
         session[:user_id] = @user.id
  
         redirect_to user_path(@user)
     end 
 
+    def githubcreate
+        
+        @user = User.find_or_create_by(uid: auth['uid']) do |u|
+           
+            u.name = auth['info']['nickname']
+            u.username = auth['uid']
+            u.email = auth[:info][:nickname] + "@gmail.com"
+            
+            u.password = auth['uid'] #use a gem called secure random hex to produce a password
+        end
+        binding.pry
+        session[:user_id] = @user.id
  
+        redirect_to user_path(@user)
+    end 
 
     def destroy 
         session.clear 

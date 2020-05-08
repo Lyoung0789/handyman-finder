@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   delete '/logout', to: "sessions#destroy"
 
   get '/auth/facebook/callback' => 'sessions#fbcreate'
-
+  get '/auth/github/callback' => 'sessions#githubcreate'
+  
 
   resources :appointments
   resources :technicians
