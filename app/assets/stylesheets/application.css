@@ -42,3 +42,12 @@
     color: black;
   }
   
+
+
+  label{
+    display: table-cell;
+    text-align: right;
+}
+  input {
+    display: table-cell;
+  }
