@@ -19,4 +19,26 @@
     background-color: red;
     display: table;
   }
+
+  .navbar{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333333;
+    overflow: hidden;
+  }
+
+  .navbar a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
   

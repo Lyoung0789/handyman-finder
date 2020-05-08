@@ -35,7 +35,7 @@ class AppointmentsController < ApplicationController
     end 
 
     def show 
-        # binding.pry
+        
         find_appointment
         if current_user.id != @appointment.user_id
             no_access
@@ -62,7 +62,6 @@ class AppointmentsController < ApplicationController
        else 
         render :edit
        end 
-
     end 
 
 
@@ -76,6 +75,8 @@ class AppointmentsController < ApplicationController
             redirect_to user_path(current_user)
         end 
     end 
+    
+
     
     private 
 
