@@ -45,6 +45,18 @@ class AppointmentsController < ApplicationController
         # byebug
         
     end 
+
+    def edit 
+        @appointment = Appointment.find_by(id:params[:id])
+        # binding.pry
+    end 
+
+    def destroy 
+        # binding.pry
+        @appointment = Appointment.find_by(id: params[:id])
+        @appointment.destroy
+        redirect_to user_path(current_user)
+    end 
     private 
 
     def appointment_params
