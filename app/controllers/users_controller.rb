@@ -51,8 +51,5 @@ class UsersController < ApplicationController
         @user = User.find_by(id: params[:id])
     end 
 
-    def no_access 
-        flash[:error] = "You do not have access to that page."
-        redirect_to user_path(current_user)
-    end 
+
 end

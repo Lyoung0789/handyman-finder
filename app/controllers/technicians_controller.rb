@@ -29,17 +29,21 @@ class TechniciansController < ApplicationController
     end 
 
     def show
+       
         find_technician
+       
     end 
 
     def edit 
-        # binding.pry
-        find_technician
-
+        if current_user.management == true 
+            find_technician
+        else 
+            no_access
+        end 
     end 
 
     def update
-        # binding.pry
+        
         find_technician
         if @technician.update(tech_params)
             redirect_to technician_path(@technician)
@@ -57,4 +61,5 @@ class TechniciansController < ApplicationController
     def find_technician
         @technician = Technician.find_by(id: params[:id])
     end 
+
 end

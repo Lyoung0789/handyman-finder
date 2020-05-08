@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
     helper_method :current_user
     helper_method :logged_in?
     helper_method :correct_user?
+    helper_method :no_access
 
     private 
     def verified_user
@@ -25,5 +26,10 @@ class ApplicationController < ActionController::Base
       def correct_user? 
         current_user.id == params[:id].to_i
       end 
+
+      def no_access 
+        flash[:error] = "You do not have access to that page."
+        redirect_to user_path(current_user)
+    end 
 
 end
