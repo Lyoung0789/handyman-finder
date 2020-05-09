@@ -61,7 +61,7 @@ class TechniciansController < ApplicationController
 
     private 
     def tech_params
-        params.require(:technician).permit(:name, :phone_number, :email, :category)
+        params.require(:technician).permit(:name, :phone_number, :email, :category, :about)
     end 
 
     def find_technician
