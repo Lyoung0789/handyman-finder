@@ -5,7 +5,7 @@
 
 <h3>Your Technician:</h3>
     <p><%= @appointment.technician.name %> - <%= @appointment.technician.category %> </p>
-    <p><%= link_to "More Details", technician_path(@appointment.technician) %>
+    <p><%= technician_details(@appointment.technician) %>
 
     
 <h3>Issue:</h3>

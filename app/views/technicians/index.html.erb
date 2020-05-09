@@ -5,22 +5,22 @@
 <ul>
 <% @technicians.each do |tech| %> 
     <% if current_user.management == false %> 
-        <li><%= link_to tech.name, technician_path(tech) %> 
-        <%= tech.category %> 
-        
+        <p><strong><li><%= tech.name %> - <%= tech.category %></strong>
+        <br>
+        <%= technician_details(tech) %>
+        <br>
         <%= link_to "Book Technician", new_technician_appointment_path(tech) %></li>
+        </p>
     <% else %>
         <li><%= link_to tech.name, edit_technician_path(tech) %> 
         <%= tech.category %> 
         
         <%= link_to "View Appointments", technician_appointments_path(tech) %>
-        </li>
-        
-    <% end %>
-
-    
+        </li> 
+    <% end %>  
 <% end %> 
 </ul>
+
 <br>
 <% if current_user.management == true %>
 <h2>Create a new Technician</h2>
