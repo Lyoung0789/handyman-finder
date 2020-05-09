@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     end 
     
     def show 
+        
         if correct_user? 
             find_user
         else 
