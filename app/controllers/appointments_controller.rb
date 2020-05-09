@@ -22,13 +22,15 @@ class AppointmentsController < ApplicationController
                 if @appointment.save
                     redirect_to user_path(current_user)
                 else 
+                    #when render:new it does not follow nested route. 
                     flash[:error] = "Must have a valid date and an Issue."
                     redirect_to new_technician_appointment_path(params[:appointment][:technician_id])
                     
+                    
                 end 
             else 
-                flash[:error] = "Must have a valid date and an Issue."
-                render :new
+                flash[:error] = "There is an appointment already booked for this time."
+                redirect_to new_technician_appointment_path(params[:appointment][:technician_id])
             end 
         end 
 

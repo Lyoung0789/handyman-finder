@@ -1,6 +1,6 @@
 <%= form_for @appointment do |f| %>
 
-    <%= render partial: "layouts/errors", locals: {object: @appointment} %>
+    <%= render_error(@appointment) %>
 
     <%= f.label :date %> 
     <%= f.datetime_field :date %> 
@@ -13,7 +13,6 @@
         <%= f.label :technician_id, "Technician"%> 
         <%= f.collection_select :technician_id, Technician.all, :id, :name, prompt:true %>
     <% else %> 
-    
         <%= f.hidden_field :technician_id, value: @tech.id %>
     <% end %>
 

@@ -2,7 +2,7 @@
 
 <%= form_for @appointment do |f| %>
 
-    <%= render partial: "layouts/errors", locals: {object: @appointment} %>
+    <%= render_error(@appointment) %>
 
     <%= f.label :date %> 
     <%= f.datetime_field :date %> 

@@ -1,7 +1,7 @@
 <%= form_for @technician do |f|%>
 
-    <%= render partial: "layouts/errors", locals: {object: @technician} %>
-
+    <%= render_error(@technician) %>
+    
     <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
