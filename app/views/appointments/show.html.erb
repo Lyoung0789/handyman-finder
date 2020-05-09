@@ -1,7 +1,7 @@
 <h1>Appointment Information</h1>
 
 <h3>You have a scheduled appointment on:</h3>
-<p> <%= @appointment.date.strftime("%A, %b %d") %> at: <%= @appointment.date.strftime("%I:%M:%S %p") %></p>
+<p><%= formatted_date(@appointment)%></p>
 
 <h3>Your Technician:</h3>
     <p><%= @appointment.technician.name %> - <%= @appointment.technician.category %> </p>

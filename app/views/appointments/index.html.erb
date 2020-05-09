@@ -3,7 +3,7 @@
 <% @tech.appointments.each do |app| %>
     <li><strong>Name:</strong> <%= app.user.name %> <br>
     <strong>Issue:</strong> <%= app.issue %><br>
-    <strong>Appointment time and date:</strong> <%= app.date.strftime("%A, %d %b %Y %l:%M %p") %> <br></li>
+    <strong>Appointment time and date:</strong> <%= formatted_date(app) %> <br></li>
     <br>
 <% end %> 
 </ul>
