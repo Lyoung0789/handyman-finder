@@ -1,6 +1,6 @@
 class Technician < ApplicationRecord
     has_many :appointments
-    has_many :users, through: :appointments
+    has_many :users, through: :appointments, dependent: :destroy
     validates :name, presence: true
     validates :category, presence: true 
     validates :email, presence: true

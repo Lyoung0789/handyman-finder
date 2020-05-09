@@ -51,6 +51,13 @@ class TechniciansController < ApplicationController
         end 
     end 
 
+    def destroy
+        
+        find_technician
+        @technician.destroy
+        redirect_to technicians_path
+    end 
+
 
     private 
     def tech_params
