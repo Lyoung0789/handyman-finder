@@ -13,7 +13,9 @@
   
   <% if logged_in? %>
   <nav class="navbar">
-  <%= link_to "Home", user_path(current_user) %> <%= link_to "Log Out", logout_path, method: "delete" %> <%= link_to "My Profile", edit_user_path(current_user)%></nav>
+  <%= link_to "Home", user_path(current_user) %> <%= link_to "Log Out", logout_path, method: "delete" %> <%= link_to "My Profile", edit_user_path(current_user)%>
+  <div class = "topnav-right"><%= image_tag "logo", width:'60px'%></div>
+  </nav>
   <% end %>
     <%= yield %>
   </body>
