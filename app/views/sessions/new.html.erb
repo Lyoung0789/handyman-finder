@@ -1,5 +1,7 @@
 <h1>Log In</h1>
+
 <div style="color:red"><strong><%= flash[:error] %></strong></div>
+
 <%= form_for @user, url: '/login' do |f| %> 
     <%= f.label :username %>
     <%= f.text_field :username %>
