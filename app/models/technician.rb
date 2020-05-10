@@ -6,12 +6,8 @@ class Technician < ApplicationRecord
     validates :email, presence: true
 
     scope :filter_by_category, -> (params){where("Category = ?", "#{params}")}
+    scope :search_by_name, -> (params){where("LOWER(name) LIKE ?", "%#{params}%")}
 
-    def self.search_by_name(params)
-        # byebug
-        where("LOWER(name) LIKE ?", "%#{params}%")
-    end 
 
- 
 
 end
