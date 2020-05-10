@@ -7,5 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 user_1 = User.create(name: "Jack", username: "JJ", email:"jackjones@test.com", password: "jack", phone_number: "555-555-5555")
-technician = Technician.create(name: "Joe_tech", phone_number:"111-111-1111", category: "Appliance", email:"Joe@test.com")
+technician = Technician.create(name: "Joe", phone_number:"111-111-1111", category: "Appliance", email:"Joe@test.com", about: "Hi my name is Joe, I have been an Appliance repair technician for 20 years. I am looking forward to working with you!")
 app = Appointment.create(date: DateTime.current, issue:"Fridge is broken", technician_id: 1, user_id: 1)

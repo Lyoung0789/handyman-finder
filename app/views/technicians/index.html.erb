@@ -12,9 +12,10 @@
         <%= link_to "Book Technician", new_technician_appointment_path(tech) %></li>
         </p>
     <% else %>
-        <li><%= link_to tech.name, edit_technician_path(tech) %> 
-        <%= tech.category %> 
+        <li><strong><%= tech.name %> - <%= tech.category %></strong>
         
+        <br>
+        <%= link_to "Edit Technician", edit_technician_path(tech) %> <br>
         <%= link_to "View Appointments", technician_appointments_path(tech) %>
         </li> 
     <% end %>  

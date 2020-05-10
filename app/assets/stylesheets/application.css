@@ -53,13 +53,15 @@
   }
 
 .footer{
-  position: fixed;
+  
   left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #333333;
-  color: white;
+  
+  width: 100%; 
+  
+  
   text-align: center;
+  position: sticky;
+  /* flex-shrink: 0; */
   }
 
   .topnav-right {
