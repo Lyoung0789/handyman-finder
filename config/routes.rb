@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :appointments, except: [:index]
   resources :technicians
-  resources :users
+  resources :users, except: [:index, :destroy]
 
   root "welcome#hello" 
 
