@@ -1,6 +1,11 @@
 class AppointmentsController < ApplicationController
     
     def new 
+        # binding.pry
+        if current_user.management == true 
+            flash[:error] = "You do not have permission to do that."
+            redirect_to user_path(current_user)
+        end 
         if params[:technician_id] && @tech = Technician.find_by(id: params[:technician_id])
             @appointment = @tech.appointments.build
         else 
