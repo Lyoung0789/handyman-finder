@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   root "welcome#hello" 
 
   resources :technicians do 
-    resources :appointments, only: [:new, :index]
+    resources :appointments, only: [:new, :index, :create]
   end 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

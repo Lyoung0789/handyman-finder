@@ -1,10 +1,12 @@
 class TechniciansController < ApplicationController
 
     def index 
-        @technicians = Technician.all  
+        @technicians = Technician.all 
+        
         if params[:q]
             @technicians = @technicians.search_by_name(params[:q].downcase)
         end     
+        
         @technicians = @technicians.filter_by_category(params[:technician][:category]) if params[:technician] && !params[:technician][:category].empty?
     end 
 

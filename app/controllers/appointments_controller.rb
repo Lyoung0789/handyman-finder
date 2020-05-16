@@ -14,7 +14,7 @@ class AppointmentsController < ApplicationController
     end 
 
     def create 
-        
+        # binding.pry
         @tech = Technician.find_by(id: params[:appointment][:technician_id])
         if params[:appointment][:date].empty?
             flash[:error] = "Date cannot be empty."
